@@ -13,7 +13,6 @@ Route::get('/movies/{film}/store', [FilmController::class, 'store'])->name('film
 Route::get('/movies/genre/{genre}', [FilmController::class, 'moviesByGenre'])->name('genre');
 
 // Resource route for film (if you're using CRUD actions)
-//tambah route
 Route::post('/movies/{film}/kritik', [FilmController::class, 'store'])->name('kritik.store');
 Route::get('/movies/{kritik}/edit', [FilmController::class, 'edit'])->name('kritik.edit');
 Route::put('/movies/{kritik}', [FilmController::class, 'update'])->name('kritik.update');
