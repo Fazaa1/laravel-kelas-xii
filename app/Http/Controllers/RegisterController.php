@@ -22,7 +22,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        return view('components.login');//
+        return view('templates.component.login');//
     }
 
     /**

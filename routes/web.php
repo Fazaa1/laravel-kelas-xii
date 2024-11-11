@@ -14,7 +14,6 @@ use App\Http\Controllers\{
 Route::get('/', [FilmController::class, 'movieHome'])->name('home');
 Route::get('/movies', [FilmController::class, 'movies'])->name('movies');
 Route::get('/movies/{film}', [FilmController::class, 'show'])->name('movies.show');
-Route::get('/movies/{film}/store', [FilmController::class, 'store'])->name('film.store');
 Route::get('/movies/genre/{genre}', [FilmController::class, 'moviesByGenre'])->name('genre');
 
 // Resource route for film (if you're using CRUD actions)
