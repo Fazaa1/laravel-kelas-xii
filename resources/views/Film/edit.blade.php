@@ -141,7 +141,7 @@
     error: function(xhr) {
         Swal.fire({
             title: 'Error!',
-            text: 'Terjadi kesalahan saat memperbarui film.',
+            text: 'Terjadi kesalahan saat update film.',
             icon: 'error',
             confirmButtonText: 'Tutup'
         });

@@ -29,8 +29,8 @@
 <!-- /w3l-medile-movies-grids -->
 <div class="container mt-5">
 	<h1 class="text-center mb-4">Form Create</h1>
-	<form id="filmForm" action="{{ route('film.store') }}" method="POST" 	enctype="multipart/form-data">
-		@csrf
+    <form id="filmForm" action="{{ route('film.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 		<div class="form-group">
 			<label for="title">Masukan Judul</label>
 			<input type="text" class="form-control" name="title" id="title" placeholder="MASUKAN JUDUL">

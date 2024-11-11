@@ -3,7 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     FilmController,
-    
+    KritikController,
+    AuthController,
+    UserController,
+    RegisterController,
+    SearchController,
+
 };
 
 Route::get('/', [FilmController::class, 'movieHome'])->name('home');
@@ -14,11 +19,21 @@ Route::get('/movies/genre/{genre}', [FilmController::class, 'moviesByGenre'])->n
 
 // Resource route for film (if you're using CRUD actions)
 //tambah route
-Route::post('/movies/{film}/kritik', [FilmController::class, 'store'])->name('kritik.store');
-Route::get('/movies/{kritik}/edit', [FilmController::class, 'edit'])->name('kritik.edit');
-Route::put('/movies/{kritik}', [FilmController::class, 'update'])->name('kritik.update');
-Route::get('/movies/{kritik}/show', [FilmController::class, 'show'])->name('kritik.show');
-Route::delete('/movies/{kritik}', [FilmController::class, 'destroy'])->name('kritik.destroy');
+
 Route::resource('film', FilmController::class)->parameters([
     'film' => 'film'
 ]);
+
+Route::get('/search', [SearchController::class, 'search'])->name('film.search');
+
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/register', 'create')->name('register.create');
+    Route::post('/register', 'store')->name('register.store');
+});
+
+Route::resource('users', UserController::class)->middleware('can:manage_users');
+
+Route::controller(AuthController::class)->group(function () {
+    Route::post('authenticate', 'authenticate')->name('login.authenticate');
+    Route::post('logout', 'logout')->name('login.logout');
+});
